@@ -1,10 +1,67 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="" defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title>inscription</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="signUp()">
+    <div class="padding">
+      <div class="logo">
+        <img
+          src="../../assets/icon/logo_ctt_fontaine.png"
+          alt="Logo du ctt fontaine"
+        />
+      </div>
+      <ion-item>
+        <ion-label color="dark">Email</ion-label>
+        <ion-input
+          formControlName="email"
+          color="dark"
+          type="email"
+          placeholder="Adresse email"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Mot de passe</ion-label>
+        <ion-input
+          formControlName="password"
+          color="dark"
+          type="password"
+          placeholder="Mot de passe"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Nom</ion-label>
+        <ion-input
+          formControlName="lastName"
+          color="dark"
+          type="text"
+          placeholder="Nom"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Prénom</ion-label>
+        <ion-input
+          formControlName="firstName"
+          color="dark"
+          type="text"
+          placeholder="Prénom"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        type="submit"
+        color="dark"
+        fill="outline"
+        expand="block"
+        shape="round"
+      >
+        S'incrire
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/messages"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modifier un message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="message">
+  <form #f="ngForm" (ngSubmit)="updateMessage(message.id, f)">
+    <ion-item>
+      <ion-label color="dark" position="floating">Titre</ion-label>
+      <ion-input
+        [(ngModel)]="message.title"
+        name="title"
+        color="dark"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" position="floating">Message</ion-label>
+      <ion-textarea
+        [(ngModel)]="message.post"
+        name="post"
+        color="dark"
+        rows="15"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-button type="submit" color="dark" expand="block" shape="round">
+      Publier
+    </ion-button>
+  </form></ion-content
+>
+
+<app-footer></app-footer>

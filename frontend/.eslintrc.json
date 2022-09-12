@@ -5,7 +5,8 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["frontend/tsconfig.json", "frontend/e2e/tsconfig.json"],
+        "project": ["./frontend/tsconfig.json"],
+        "sourceType": "module",
         "createDefaultProgram": true
       },
       "extends": [

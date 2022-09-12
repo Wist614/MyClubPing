@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste du stock</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="stock">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-button expand="full" fill="outline" routerLink="create"
+    >Rajouter un produit</ion-button
+  >
+  <ion-item-sliding *ngFor="let item of stock">
+    <ion-item>
+      <ion-label>
+        <h2>{{item.name}}</h2>
+      </ion-label>
+      <ion-badge
+        color="primary"
+        [color]="item.quantity >= 10 ? 'success' : 'danger'"
+        >{{item.quantity}}</ion-badge
+      >
+    </ion-item>
+
+    <ion-item-options side="start" [routerLink]="[item.id]">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="pencil"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end" (click)="deleteStock(item.id, item.name)">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-content>
+
+<app-footer></app-footer>

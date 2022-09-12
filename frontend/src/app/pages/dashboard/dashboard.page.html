@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="start"
+      ><ion-back-button defaultHref="/news"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-button routerLink="messages"> Gestion des messages </ion-button>
+    <ion-button routerLink="teams">Gestion d'équipes</ion-button>
+    <ion-button routerLink="calendar">Gestion du calendrier</ion-button>
+    <ion-button routerLink="stock">Gestion du stock</ion-button>
+    <ion-button routerLink="users">Gestion des membres</ion-button>
+  </ion-card>
+</ion-content>
+
+<app-footer></app-footer>
