@@ -1,0 +1,21 @@
+ion-button {
+  width: 46%;
+  height: 30%;
+  padding: 8 px;
+  font-size: xx-small;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ion-card {
+  display: flex;
+  flex-wrap: wrap;
+  height: 95%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ion-button div {
+  display: flex;
+  align-items: center;
+}

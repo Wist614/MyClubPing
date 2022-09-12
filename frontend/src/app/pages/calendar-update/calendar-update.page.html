@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/calendar"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="calendar">Mettre à jour {{calendar.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="calendar">
+  <form #f="ngForm" (ngSubmit)="updateCalendar(calendar.id, f)">
+    <ion-item>
+      <ion-label color="dark" position="floating">Nom</ion-label>
+      <ion-input
+        [(ngModel)]="calendar.name"
+        name="name"
+        color="dark"
+      ></ion-input>
+    </ion-item>
+
+    <ion-datetime
+      [(ngModel)]="calendar.date"
+      name="date"
+      presentation="date"
+    ></ion-datetime>
+
+    <ion-button type="submit" color="dark" expand="block" shape="round">
+      Mettre à jour
+    </ion-button>
+  </form></ion-content
+>
+
+<app-footer></app-footer>

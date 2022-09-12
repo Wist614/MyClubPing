@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="match" class="ion-text-center"
+      >{{match.name_team}}</ion-title
+    >
+    <ion-buttons slot="start"
+      ><ion-back-button defaultHref="/matchs"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="match && matchDay">
+    <ion-list>
+      <ion-item>
+        <ion-label class="nameMatch"
+          >{{matchDay.name}} - {{matchDay.date | date: 'dd/MM/yyyy'}}</ion-label
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label>Heure :</ion-label>
+        <p slot="end">{{match.hour}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Adversaire :</ion-label>
+        <p slot="end">{{match.opponent}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Lieu :</ion-label>
+        <p slot="end">{{match.location}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Joueur 1 :</ion-label>
+        <p slot="end">{{match.player_1}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Joueur 2 :</ion-label>
+        <p slot="end">{{match.player_2}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Joueur 3 :</ion-label>
+        <p slot="end">{{match.player_3}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Joueur 4 :</ion-label>
+        <p slot="end">{{match.player_4}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<app-footer></app-footer>

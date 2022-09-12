@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des messages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="messages">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-button expand="full" fill="outline" routerLink="create"
+    >créer un message</ion-button
+  >
+  <ion-item-sliding *ngFor="let message of messages">
+    <ion-item>
+      <ion-label>
+        <h2>{{message.title}}</h2>
+        <p>{{message.post}}</p>
+      </ion-label>
+      <ion-note slot="end">{{message.date | date: 'dd/MM/yyyy'}}</ion-note>
+    </ion-item>
+
+    <ion-item-options side="start" [routerLink]="[message.id]">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="pencil"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options
+      side="end"
+      (click)="deleteMessage(message.id, message.title)"
+    >
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-content>
+
+<app-footer></app-footer>

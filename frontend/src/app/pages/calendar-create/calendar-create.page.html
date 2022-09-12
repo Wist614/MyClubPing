@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/messages"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajouter une date</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="createCalendar(f)">
+    <ion-item>
+      <ion-label color="dark" position="floating">Nom de la journée</ion-label>
+      <ion-input (ngModel)="calendar.name" name="name" color="dark"></ion-input>
+    </ion-item>
+
+    <ion-datetime
+      (ngModel)="calendar.date"
+      name="date"
+      presentation="date"
+    ></ion-datetime>
+
+    <ion-button type="submit" color="dark" expand="block" shape="round">
+      Ajouter la date
+    </ion-button>
+  </form></ion-content
+>
+
+<app-footer></app-footer>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calendrier</ion-title>
+    <ion-buttons slot="start"
+      ><ion-back-button defaultHref="/dashboard/users/profile"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let item of dispos">
+      <ion-label> {{item.name}} </ion-label>
+      <ion-label> {{item.date | date: 'dd/MM/yyyy'}} </ion-label>
+      <ion-badge
+        slot="end"
+        [color]="item.disponibilitys.dispo ? 'success' : 'danger'"
+      >
+        {{item.disponibilitys.dispo? 'Présent': 'Absent'}}
+      </ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<app-footer></app-footer>

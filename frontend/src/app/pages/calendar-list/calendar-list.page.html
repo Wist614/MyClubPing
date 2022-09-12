@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Calendrier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="calendars">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-button expand="full" fill="outline" routerLink="create"
+    >Ajouter une date</ion-button
+  >
+  <ion-item-sliding *ngFor="let calendar of calendars">
+    <ion-item>
+      <ion-label>
+        <h2>{{calendar.name}}</h2>
+      </ion-label>
+      <ion-note slot="end">{{calendar.date | date: 'dd/MM/yyyy'}}</ion-note>
+    </ion-item>
+
+    <ion-item-options side="start" [routerLink]="[calendar.id]">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="pencil"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options
+      side="end"
+      (click)="deleteCalendar(calendar.id, calendar.name)"
+    >
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-content>
+
+<app-footer></app-footer>

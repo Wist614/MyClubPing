@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/teams"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Créer une équipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="createTeam(f)">
+    <ion-item>
+      <ion-label color="dark" position="floating">Nom de l'équipe</ion-label>
+      <ion-input
+        (ngModel)="team.name_team"
+        name="name_team"
+        color="dark"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" color="dark" expand="block" shape="round">
+      Ajouter l'équipe
+    </ion-button>
+  </form></ion-content
+>
+
+<app-footer></app-footer>

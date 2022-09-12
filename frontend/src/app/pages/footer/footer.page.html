@@ -1,0 +1,26 @@
+<ion-tab-bar slot="bottom">
+  <ion-tab-button [routerLink]="['/calendar/me']">
+    <ion-icon name="calendar"></ion-icon>
+    <ion-label>Calendrier</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button [routerLink]="['/user/me']">
+    <ion-icon name="person-circle"></ion-icon>
+    <ion-label>Profil</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button [routerLink]="['/news']">
+    <ion-icon name="chatbox-ellipses"></ion-icon>
+    <ion-label>Messages</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button [routerLink]="['/matchs']">
+    <ion-icon name="tennisball"></ion-icon>
+    <ion-label>Matchs</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button *ngIf="isAdmin === true" [routerLink]="['/dashboard']">
+    <ion-icon name="settings"></ion-icon>
+    <ion-label>Admin</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/teams"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="team">Mettre à jour {{team.name_team}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="team">
+  <form #f="ngForm" (ngSubmit)="updateTeam(team.id, f)">
+    <ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-label color="dark" slot="start">Heure :</ion-label>
+          <ion-input
+            [(ngModel)]="team.hour"
+            name="hour"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Adversaire :</ion-label>
+          <ion-input
+            [(ngModel)]="team.opponent"
+            name="opponent"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Lieu :</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="team.location"
+            name="location"
+            interface="action-sheet"
+            placeholder="Choix du lieu"
+          >
+            <ion-select-option value="Domicile">Domicile</ion-select-option>
+            <ion-select-option value="Extérieur">Extérieur</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Joueurs alignés:</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="team.player_1"
+            name="player_1"
+            placeholder="Joueur 1"
+          >
+            <ion-select-option
+              color="dark"
+              *ngFor="let player of players"
+              [value]="player"
+              >{{ player.aboutUser }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select
+            [(ngModel)]="team.player_2"
+            name="player_2"
+            placeholder="Joueur 2"
+          >
+            <ion-select-option
+              color="dark"
+              *ngFor="let player of players"
+              [value]="player"
+              >{{ player.aboutUser }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="team.player_3"
+            name="player_3"
+            placeholder="Joueur 3"
+          >
+            <ion-select-option
+              color="dark"
+              *ngFor="let player of players"
+              [value]="player"
+              >{{ player.aboutUser }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="team.player_4"
+            name="player_4"
+            placeholder="Joueur 4"
+          >
+            <ion-select-option
+              color="dark"
+              *ngFor="let player of players"
+              [value]="player"
+              >{{ player.aboutUser }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark">Journée :</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="team.match_day_id"
+            name="day"
+            placeholder="Choix de la journée"
+          >
+            <ion-select-option
+              color="dark"
+              *ngFor="let day of days"
+              [value]="day"
+              >{{ day.name }} - {{ day.date | date:
+              'dd/MM/yyyy'}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-button type="submit" color="dark" expand="block" shape="round">
+        Mettre à jour
+      </ion-button>
+    </ion-card>
+  </form>
+</ion-content>
+
+<app-footer></app-footer>

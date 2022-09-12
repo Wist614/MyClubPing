@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="user" class="ion-text-center"
+      >Modifier {{user?.last_name + ' ' + user?.first_name}}</ion-title
+    >
+    <ion-buttons slot="start"
+      ><ion-back-button defaultHref="/dashboard/users"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user">
+  <form #f="ngForm" (ngSubmit)="updateUser(user.id, f)">
+    <ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-label color="dark" slot="start">Nom :</ion-label>
+          <ion-input
+            [(ngModel)]="user.last_name"
+            name="last_name"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Prénom :</ion-label>
+          <ion-input
+            [(ngModel)]="user.first_name"
+            name="first_name"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Email :</ion-label>
+          <ion-input
+            [(ngModel)]="user.email"
+            name="email"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Téléphone :</ion-label>
+          <ion-input
+            [(ngModel)]="user.phone"
+            name="phone"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Classement :</ion-label>
+          <ion-input
+            [(ngModel)]="user.rank"
+            name="rank"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Numéro de référence :</ion-label>
+          <ion-input
+            [(ngModel)]="user.num_ref"
+            name="num_ref"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark" slot="start">Solde :</ion-label>
+          <ion-input
+            [(ngModel)]="user.solde"
+            name="solde"
+            color="dark"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark">Cotisation :</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="user.cotisation"
+            name="cotisation"
+            interface="action-sheet"
+            placeholder="Etat de la cotisation"
+          >
+            <ion-select-option value="true">En ordre</ion-select-option>
+            <ion-select-option value="false">Pas en ordre</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label color="dark">Admin :</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-select
+            [(ngModel)]="user.is_admin"
+            name="is_admin"
+            interface="action-sheet"
+            placeholder="Mode administrateur"
+          >
+            <ion-select-option value="true">Oui</ion-select-option>
+            <ion-select-option value="false">Non</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-button type="submit" color="dark" expand="block" shape="round">
+        Mettre à jour
+      </ion-button>
+    </ion-card>
+  </form>
+</ion-content>
+
+<app-footer></app-footer>

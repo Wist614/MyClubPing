@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center"
+      >{{user?.last_name + ' ' + user?.first_name}}</ion-title
+    >
+    <ion-buttons slot="start"
+      ><ion-back-button defaultHref="/dashboard/users"></ion-back-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="user">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom :</ion-label>
+        <ion-label slot="end">{{user.first_name}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Prénom :</ion-label>
+        <ion-label slot="end">{{user.last_name}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email :</ion-label>
+        <ion-label slot="end">{{user.email}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Téléphone :</ion-label>
+        <ion-label slot="end">{{user.phone}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Classement :</ion-label>
+        <ion-label slot="end">{{user.rank}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Numéro de référence :</ion-label>
+        <ion-label slot="end">{{user.num_ref}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Solde :</ion-label>
+        <ion-label [color]="user.solde >= 0 ? 'success' : 'danger'" slot="end"
+          >{{user.solde}} €</ion-label
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label>Cotisation :</ion-label>
+        <ion-label [color]="user.cotisation ? 'success' : 'danger'" slot="end">
+          {{user.cotisation? 'en ordre' : 'pas en ordre' }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Admin :</ion-label>
+        <ion-label [color]="user.is_admin ? 'success' : 'danger'" slot="end">
+          {{user.is_admin? 'oui' : 'non' }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button (click)="goToCalendar(user.id)" shape="block"
+      ><ion-icon name="calendar-number-outline"></ion-icon
+    ></ion-button>
+  </ion-card>
+</ion-content>
+
+<app-footer></app-footer>

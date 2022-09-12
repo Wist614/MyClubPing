@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des équipes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="teams">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-button expand="full" fill="outline" routerLink="create"
+    >Rajouter une équipe</ion-button
+  >
+  <ion-item-sliding *ngFor="let team of teams">
+    <ion-item>
+      <ion-label>
+        <h2>{{team.name_team}}</h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item-options side="start" [routerLink]="[team.id]">
+      <ion-item-option>
+        <ion-icon slot="icon-only" name="pencil"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end" (click)="deleteTeam(team.id, team.name_team)">
+      <ion-item-option color="danger">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-content>
+
+<app-footer></app-footer>

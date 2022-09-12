@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/stock"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="stock">Mettre à jour {{stock.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="stock">
+  <form #f="ngForm" (ngSubmit)="updateStock(stock.id, f)">
+    <ion-item>
+      <ion-label color="dark" position="floating">Nom</ion-label>
+      <ion-input [(ngModel)]="stock.name" name="name" color="dark"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="dark" position="floating">Quantité</ion-label>
+      <ion-input
+        [(ngModel)]="stock.quantity"
+        name="quantity"
+        color="dark"
+        type="number"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" color="dark" expand="block" shape="round">
+      Mettre à jour
+    </ion-button>
+  </form></ion-content
+>
+
+<app-footer></app-footer>

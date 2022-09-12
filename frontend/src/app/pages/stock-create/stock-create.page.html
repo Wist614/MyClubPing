@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard/messages"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Créer un produit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="createStock(f)">
+    <ion-item>
+      <ion-label color="dark" position="floating">Nom du Produit</ion-label>
+      <ion-input (ngModel)="stock.name" name="name" color="dark"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" color="dark" expand="block" shape="round">
+      Ajouter le produit
+    </ion-button>
+  </form></ion-content
+>
+
+<app-footer></app-footer>
